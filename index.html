@@ -23,13 +23,24 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
             max-width: 360px;
             width: 100%;
+            box-sizing: border-box;
+        }
+
+        .subtitulo-superior {
+            text-align: center;
+            color: #0066cc;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         h2 {
             color: #1a252c;
             text-align: center;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-size: 22px;
         }
 
@@ -56,17 +67,56 @@
             margin-top: 4px;
             word-break: break-all;
         }
+
+        .contenedor-clabe {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+
+        .btn-icono {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px 6px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, transform 0.1s;
+            color: #0066cc;
+        }
+
+            .btn-icono:active {
+                transform: scale(0.9);
+                background-color: #e6f0fa;
+            }
+
+            .btn-icono svg {
+                width: 22px;
+                height: 22px;
+                fill: currentColor;
+            }
+
+        .nota-inferior {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h3 style="text-align: center; color: #0066cc; margin-bottom: 5px; font-size: 16px;">Huaraches de Juan</h3>
+        <div class="subtitulo-superior">Huaraches de Juan</div>
         <h2>Datos para Transferencia</h2>
 
         <div class="campo">
             <div class="etiqueta">Titular</div>
-            <div class="valor">Eva Isabel Carretero Sandoval</div>
+            <div class="valor">>Eva Isabel Carretero Sandoval</div>
         </div>
 
         <div class="campo">
@@ -76,9 +126,41 @@
 
         <div class="campo">
             <div class="etiqueta">CLABE Interbancaria</div>
-            <div class="valor">01 44 27 56 93 97 76 14 18</div>
+            <div class="contenedor-clabe">
+                <div class="valor" id="clabe">014427569397761418</div>
+
+                <button class="btn-icono" id="btnCopiar" onclick="copiarCLABE()" title="Copiar CLABE">
+                    <svg id="iconoPortapapeles" viewBox="0 0 24 24">
+                        <path d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z" />
+                    </svg>
+                </button>
+            </div>
         </div>
+
+        <p class="nota-inferior">Favor de enviar comprobante al realizar la transferencia</p>
     </div>
+
+    <script>
+        var svgPalomita = '<svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>';
+        var svgPortapapeles = '<svg viewBox="0 0 24 24"><path d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/></svg>';
+
+        function copiarCLABE() {
+            var textoClabe = document.getElementById("clabe").innerText.trim();
+            var btn = document.getElementById("btnCopiar");
+
+            navigator.clipboard.writeText(textoClabe).then(function() {
+                btn.innerHTML = svgPalomita;
+                btn.style.color = "#28a745";
+
+                setTimeout(function() {
+                    btn.innerHTML = svgPortapapeles;
+                    btn.style.color = "#0066cc";
+                }, 2000);
+            }).catch(function(err) {
+                alert("No se pudo copiar automáticamente.");
+            });
+        }
+    </script>
 
 </body>
 </html>
