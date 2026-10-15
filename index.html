@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos de Transferencia</title>
+    <title>Huaraches de Juan - Datos para Transferencia</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,50 +11,99 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f0f2f5;
+            background-color: #f4f0eb;
             margin: 0;
             padding: 20px;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
+        /* Tarjeta estilo marco impreso */
+        .card-marco {
+            background-color: #ffffff;
+            padding: 35px 25px;
             border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            max-width: 360px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            max-width: 380px;
             width: 100%;
             box-sizing: border-box;
+            border: 2px dashed #d1c7bc;
+            position: relative;
+            overflow: hidden;
         }
 
-        .subtitulo-superior {
+        /* Hojitas botánicas en las esquinas */
+        .hoja-esquina {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .esquina-superior-izquierda {
+            top: 10px;
+            left: 10px;
+            transform: rotate(-10deg);
+        }
+
+        .esquina-inferior-derecha {
+            bottom: 10px;
+            right: 10px;
+            transform: rotate(170deg);
+        }
+
+        /* Círculo con Logo del Panda Chef */
+        .logo-container {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 12px auto;
+            border-radius: 50%;
+            border: 2px solid #e0beaa;
+            padding: 5px;
+            background: #faf7f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .logo-container svg {
+                width: 70px;
+                height: 70px;
+            }
+
+        .badge-negocio {
+            display: block;
             text-align: center;
-            color: #0066cc;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 5px;
+            color: #ca7857;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
         h2 {
-            color: #1a252c;
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 22px;
+            color: #4a362c;
             font-size: 22px;
+            font-weight: 800;
+            text-align: center;
+            margin: 0 0 22px 0;
         }
 
+        /* Estructura de campos en bloques */
         .campo {
             margin-bottom: 15px;
-            background: #f8f9fa;
+            background: #faf7f4;
             padding: 12px 15px;
             border-radius: 8px;
-            border-left: 4px solid #0066cc;
+            border-left: 4px solid #ca7857;
+            border-top: 1px solid #f0e6dd;
+            border-right: 1px solid #f0e6dd;
+            border-bottom: 1px solid #f0e6dd;
         }
 
         .etiqueta {
             font-size: 11px;
-            color: #666;
+            color: #9c7f6e;
             text-transform: uppercase;
             font-weight: bold;
             letter-spacing: 0.5px;
@@ -62,12 +111,13 @@
 
         .valor {
             font-size: 16px;
-            color: #111;
-            font-weight: 600;
+            color: #3b2c24;
+            font-weight: 700;
             margin-top: 4px;
             word-break: break-all;
         }
 
+        /* Alineación de la CLABE con el botón del portapapeles */
         .contenedor-clabe {
             display: flex;
             align-items: center;
@@ -85,12 +135,12 @@
             align-items: center;
             justify-content: center;
             transition: background-color 0.2s, transform 0.1s;
-            color: #0066cc;
+            color: #ca7857;
         }
 
             .btn-icono:active {
                 transform: scale(0.9);
-                background-color: #e6f0fa;
+                background-color: #f0e2d8;
             }
 
             .btn-icono svg {
@@ -101,7 +151,7 @@
 
         .nota-inferior {
             text-align: center;
-            color: #666;
+            color: #8c7365;
             font-size: 13px;
             margin-top: 20px;
             margin-bottom: 0;
@@ -110,22 +160,53 @@
 </head>
 <body>
 
-    <div class="card">
-        <div class="subtitulo-superior">Huaraches de Juan</div>
+    <div class="card-marco">
+        <!-- Hojitas Botánicas -->
+        <svg class="hoja-esquina esquina-superior-izquierda" viewBox="0 0 100 100">
+            <path d="M50 90 Q30 60 20 20 Q60 30 90 50 Q60 70 50 90 Z" fill="#88a085" />
+            <path d="M10 50 Q30 30 50 10 Q40 40 10 50 Z" fill="#b0c4b1" />
+        </svg>
+
+        <svg class="hoja-esquina esquina-inferior-derecha" viewBox="0 0 100 100">
+            <path d="M50 90 Q30 60 20 20 Q60 30 90 50 Q60 70 50 90 Z" fill="#88a085" />
+            <path d="M10 50 Q30 30 50 10 Q40 40 10 50 Z" fill="#b0c4b1" />
+        </svg>
+
+        <!-- Logo Panda Chef -->
+        <div class="logo-container">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="18" r="7" fill="#4a362c" />
+                <circle cx="46" cy="18" r="7" fill="#4a362c" />
+                <circle cx="32" cy="34" r="20" fill="#ffffff" stroke="#4a362c" stroke-width="2.5" />
+                <ellipse cx="24" cy="32" rx="4.5" ry="6" fill="#4a362c" />
+                <ellipse cx="40" cy="32" rx="4.5" ry="6" fill="#4a362c" />
+                <circle cx="25" cy="31" r="1.5" fill="#ffffff" />
+                <circle cx="39" cy="31" r="1.5" fill="#ffffff" />
+                <ellipse cx="32" cy="38" rx="2.5" ry="1.5" fill="#4a362c" />
+                <path d="M29 41 Q32 44 35 41" stroke="#4a362c" stroke-width="2" stroke-linecap="round" fill="none" />
+                <path d="M22 20 C20 12 28 8 32 12 C36 8 44 12 42 20 Z" fill="#ffffff" stroke="#ca7857" stroke-width="2" />
+                <rect x="22" y="18" width="20" height="4" rx="1" fill="#ca7857" />
+            </svg>
+        </div>
+
+        <span class="badge-negocio">HUARACHES DE JUAN</span>
         <h2>Datos para Transferencia</h2>
 
+        <!-- Bloque 1: Titular -->
         <div class="campo">
-            <div class="etiqueta">Titular</div>
+            <div class="etiqueta">TITULAR</div>
             <div class="valor">Eva Isabel Carretero Sandoval</div>
         </div>
 
+        <!-- Bloque 2: Banco -->
         <div class="campo">
-            <div class="etiqueta">Banco</div>
+            <div class="etiqueta">BANCO</div>
             <div class="valor">Santander</div>
         </div>
 
+        <!-- Bloque 3: CLABE Interbancaria + Botón Copiar -->
         <div class="campo">
-            <div class="etiqueta">CLABE Interbancaria</div>
+            <div class="etiqueta">CLABE INTERBANCARIA</div>
             <div class="contenedor-clabe">
                 <div class="valor" id="clabe">014427569397761418</div>
 
@@ -137,7 +218,7 @@
             </div>
         </div>
 
-        <p class="nota-inferior">Favor de enviar comprobante al realizar la transferencia</p>
+        <p class="nota-inferior">Favor de enviar comprobante al realizar <br> la transferencia</p>
     </div>
 
     <script>
@@ -148,15 +229,15 @@
             var textoClabe = document.getElementById("clabe").innerText.trim();
             var btn = document.getElementById("btnCopiar");
 
-            navigator.clipboard.writeText(textoClabe).then(function() {
+            navigator.clipboard.writeText(textoClabe).then(function () {
                 btn.innerHTML = svgPalomita;
                 btn.style.color = "#28a745";
 
-                setTimeout(function() {
+                setTimeout(function () {
                     btn.innerHTML = svgPortapapeles;
-                    btn.style.color = "#0066cc";
+                    btn.style.color = "#ca7857";
                 }, 2000);
-            }).catch(function(err) {
+            }).catch(function (err) {
                 alert("No se pudo copiar automáticamente.");
             });
         }
